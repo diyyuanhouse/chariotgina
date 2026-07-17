@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>交易筆記 · 總覽</title>
+<style>
+  :root{
+    --bg: #F4F6F4;
+    --ink: #263330;
+    --ink-soft: #5B6B66;
+    --sage: #5F7F68;
+    --sage-deep: #3E5B48;
+    --line: #D9E1DC;
+    --card: #FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    line-height: 1.6;
+    padding: 40px 16px 60px;
+  }
+  .wrap{max-width:640px;margin:0 auto;}
+  header{
+    text-align:center;
+    margin-bottom: 32px;
+  }
+  .eyebrow{
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--sage-deep);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  h1{
+    font-size: 24px;
+    margin: 0 0 8px;
+    font-weight: 700;
+  }
+  .subtitle{
+    color: var(--ink-soft);
+    font-size: 13.5px;
+  }
+  .section-label{
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--sage-deep);
+    letter-spacing: 0.05em;
+    margin: 28px 0 10px 4px;
+  }
+  a.card{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+    text-decoration: none;
+    color: var(--ink);
+    transition: border-color 0.15s ease;
+  }
+  a.card:hover{
+    border-color: var(--sage);
+  }
+  .card-title{
+    font-size: 15.5px;
+    font-weight: 700;
+  }
+  .card-desc{
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    margin-top: 3px;
+  }
+  .arrow{
+    color: var(--sage);
+    font-size: 18px;
+    flex:0 0 auto;
+  }
+  .placeholder{
+    border: 1px dashed var(--line);
+    border-radius: 14px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+    color: var(--ink-soft);
+    font-size: 13px;
+    text-align:center;
+  }
+  footer{
+    text-align:center;
+    font-size:12px;
+    color: var(--ink-soft);
+    margin-top: 32px;
+    padding-top: 16px;
+    border-top:1px solid var(--line);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">TRADING NOTES</div>
+    <h1>交易筆記 · 總覽</h1>
+    <div class="subtitle">身心作業流程 · 交易筆記 · 圖表紀錄,持續更新</div>
+  </header>
+
+  <div class="section-label">身心作業流程</div>
+  <a class="card" href="tradermind.html">
+    <div>
+      <div class="card-title">交易員身心作業流程課表</div>
+      <div class="card-desc">盤前 · 盤中 · 盤後 · 每週,按表操課用</div>
+    </div>
+    <span class="arrow">→</span>
+  </a>
+
+  <div class="section-label">之後會加入</div>
+  <div class="placeholder">交易筆記網頁版(待新增)</div>
+  <div class="placeholder">圖表紀錄(待新增)</div>
+
+  <footer>之後每加一份新檔案,就在這裡新增一行連結</footer>
+
+</div>
+</body>
+</html>
