@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>交易員身心作業流程 · 課表</title>
+<style>
+  :root{
+    --bg: #F4F6F4;
+    --ink: #263330;
+    --ink-soft: #5B6B66;
+    --sage: #5F7F68;
+    --sage-deep: #3E5B48;
+    --sand: #B99A63;
+    --line: #D9E1DC;
+    --card: #FFFFFF;
+    --warn-bg: #FBF2E9;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    line-height: 1.6;
+    padding: 24px 16px 60px;
+  }
+  .wrap{max-width:720px;margin:0 auto;}
+
+  header{
+    text-align:center;
+    margin-bottom: 28px;
+  }
+  .eyebrow{
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--sage-deep);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  h1{
+    font-size: 26px;
+    margin: 0 0 8px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .subtitle{
+    color: var(--ink-soft);
+    font-size: 14px;
+  }
+
+  .mantra{
+    background: var(--sage-deep);
+    color: #EFF4F0;
+    border-radius: 14px;
+    padding: 18px 20px;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    margin-bottom: 28px;
+  }
+
+  .stage{
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 20px 20px 8px;
+    margin-bottom: 18px;
+    position: relative;
+  }
+  .stage-head{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    margin-bottom: 14px;
+  }
+  .stage-tag{
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--sage-deep);
+    background: #E7EFE8;
+    border-radius: 999px;
+    padding: 3px 10px;
+    white-space: nowrap;
+  }
+  .stage-title{
+    font-size: 17px;
+    font-weight: 700;
+  }
+  .stage-note{
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    margin: -8px 0 14px;
+  }
+
+  ul.tasks{
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+  ul.tasks li{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    padding: 9px 0;
+    border-top: 1px solid var(--line);
+    font-size: 14.5px;
+  }
+  ul.tasks li:first-child{border-top:none;}
+  .box{
+    flex:0 0 auto;
+    width:18px;height:18px;
+    border-radius:5px;
+    border:2px solid var(--sage);
+    margin-top:2px;
+    cursor:pointer;
+  }
+  .box.checked{
+    background: var(--sage);
+  }
+  .box.checked::after{
+    content:"✓";
+    color:white;
+    font-size:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:100%;
+  }
+  .task-text b{font-weight:700;}
+  .task-sub{
+    display:block;
+    color: var(--ink-soft);
+    font-size: 12.5px;
+    margin-top: 2px;
+  }
+
+  .divider-only{
+    color: var(--ink-soft);
+    font-size: 13px;
+    padding: 9px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .grid2{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 10px 0 16px;
+  }
+  .pill{
+    background:#F7F3EC;
+    border:1px solid #EADFC9;
+    border-radius:10px;
+    padding:8px 10px;
+    font-size:13px;
+    text-align:center;
+    color:#7A5F33;
+    font-weight:600;
+  }
+
+  .weekly{
+    background: var(--warn-bg);
+    border: 1px solid #EADFC9;
+  }
+  .weekly .stage-tag{
+    background:#F0E1C8;
+    color:#7A5F33;
+  }
+  .weekly ul.tasks li{border-top-color:#EADFC9;}
+
+  footer{
+    text-align:center;
+    font-size:12px;
+    color: var(--ink-soft);
+    margin-top: 28px;
+    padding-top: 16px;
+    border-top:1px solid var(--line);
+  }
+
+  @media print{
+    body{background:white;}
+    .box{cursor:default;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">TRADING OPERATING SYSTEM</div>
+    <h1>交易員身心作業流程</h1>
+    <div class="subtitle">盤前 · 盤中 · 盤後 · 每週 —— 按表操課,不打分數,只打勾</div>
+  </header>
+
+  <div class="mantra">「我專注於執行我的系統」</div>
+
+  <!-- 盤前 -->
+  <div class="stage">
+    <div class="stage-head">
+      <span class="stage-tag">盤前</span>
+      <span class="stage-title">身體重開機 · 5-10分鐘</span>
+    </div>
+    <div class="stage-note">目的是進入冷靜專注,不是興奮</div>
+    <ul class="tasks">
+      <li><span class="box" onclick="toggle(this)"></span><span class="task-text"><b>身體重開機</b><span class="task-sub">橫膈膜呼吸 + 骨盆前後傾,不是拉筋,重點是腹部不要一直縮著</span></span></li>
+      <li><span class="box" onclick="toggle(this)"></span><span class="task-text"><b>心率下降</b><span class="task-sub">吸氣4秒,吐氣6-8秒,做幾次即可</span></span></li>
+      <li><span class="box" onclick="toggle(this)"></span><span class="task-text"><b>念一次宣言</b><span class="task-sub">「我專注於執行我的系統」</span></span></li>
+      <li><span class="box" onclick="toggle(this)"></span><span class="task-text"><b>看盤前確認,寫下三件事</b><span class="task-sub">今天最大風險 / 今天最多接受幾次停損 / 今天停手條件</span></span></li>
+    </ul>
+  </div>
+
+  <!-- 盤中 -->
+  <div class="stage">
+    <div class="stage-head">
+      <span class="stage-tag">盤中</span>
+      <span class="stage-title">防止交感神經失控</span>
+    </div>
+    <ul class="tasks">
+      <li><span class="box" onclick="toggle(this)"></span><span class="task-text"><b>每30分鐘身體檢查</b><span class="task-sub">肩膀放鬆了嗎?下巴放鬆了嗎?舌頭有沒有頂上顎?腹部是不是一直縮著?</span></span></li>
+      <li><span class="box" onclick="toggle(this)"></span><span class="task-text"><b>每筆成交後只問一件事</b><span class="task-sub">「我有沒有照計畫?」只有 有/沒有,不評論賺賠</span></span></li>
+      <li><span class="box" onclick="toggle(this)"></span><span class="task-text"><b>連續停損 → 立刻離開螢幕</b><span class="task-sub">走路三分鐘,喝水,不分析</span></span></li>
+      <li><span class="box" onclick="toggle(this)"></span><span class="task-text"><b>大賺 → 也離開螢幕</b><span class="task-sub">興奮跟恐懼都會降低判斷品質,同樣對待</span></span></li>
+    </ul>
+  </div>
+
+  <!-- 盤後 -->
+  <div class="stage">
+    <div class="stage-head">
+      <span class="stage-tag">盤後</span>
+      <span class="stage-title">比盤中更重要</span>
+    </div>
+    <ul class="tasks">
+      <li><span class="box" onclick="toggle(this)"></span><span class="task-text"><b>5分鐘放鬆</b><span class="task-sub">做治療師教的呼吸,不要急著檢討,先切回副交感神經</span></span></li>
+      <li><span class="box" onclick="toggle(this)"></span><span class="task-text"><b>先寫「有沒有照計畫」,不是先寫賺多少</b></span></li>
+    </ul>
+    <div class="grid2">
+      <div class="pill">進場規則 ✓ / ✗</div>
+      <div class="pill">停損執行 ✓ / ✗</div>
+      <div class="pill">有沒有追價 ✓ / ✗</div>
+      <div class="pill">情緒:害怕/貪心/生氣/後悔/不甘心</div>
+    </div>
+    <ul class="tasks">
+      <li><span class="box" onclick="toggle(this)"></span><span class="task-text"><b>結束儀式</b><span class="task-sub">關掉看盤軟體,做一件完全無關交易的事(散步、遊戲、動畫、做麵包、小說),讓大腦知道「今天交易結束了」</span></span></li>
+    </ul>
+  </div>
+
+  <!-- 每週 -->
+  <div class="stage weekly">
+    <div class="stage-head">
+      <span class="stage-tag">每週一次</span>
+      <span class="stage-title">30分鐘 · 不是檢討績效</span>
+    </div>
+    <div class="stage-note">只回答三個問題,一次只改一件事</div>
+    <ul class="tasks">
+      <li><span class="box" onclick="toggle(this)"></span><span class="task-text">這週哪一次<b>最冷靜</b>?</span></li>
+      <li><span class="box" onclick="toggle(this)"></span><span class="task-text">這週哪一次<b>最衝動</b>?</span></li>
+      <li><span class="box" onclick="toggle(this)"></span><span class="task-text">如果重來一次,<b>只改一件事</b>,會改什麼?</span></li>
+    </ul>
+  </div>
+
+  <footer>此頁不儲存勾選狀態,重新整理會重置 · 完整紀錄請見交易筆記文件</footer>
+
+</div>
+
+<script>
+  function toggle(el){
+    el.classList.toggle('checked');
+  }
+</script>
+</body>
+</html>
