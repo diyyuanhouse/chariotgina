@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>Office 2021 雲端免下載部署與激活全攻略</title>
+    <style>
+        body { font-family: "Microsoft JhengHei", Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f9f9f9; }
+        h1 { color: #0056b3; border-bottom: 2px solid #0056b3; padding-bottom: 10px; }
+        h2 { color: #28a745; margin-top: 30px; border-left: 5px solid #28a745; padding-left: 10px; }
+        h3 { color: #17a2b8; }
+        .notice-box { background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; margin: 20px 0; border-radius: 4px; font-weight: bold; color: #856404; }
+        .success-box { background-color: #d4edda; border-left: 5px solid #28a745; padding: 15px; margin: 20px 0; border-radius: 4px; font-weight: bold; color: #155724; }
+        .code-box { background-color: #222; color: #fff; padding: 15px; border-radius: 5px; font-family: Consolas, monospace; white-space: pre-wrap; word-wrap: break-word; margin: 10px 0; }
+        .xml-box { background-color: #f1f1f1; color: #c7254e; padding: 15px; border-radius: 5px; font-family: Consolas, monospace; white-space: pre-wrap; border: 1px solid #ccc; margin: 10px 0; }
+        ol, ul { padding-left: 20px; }
+        li { margin-bottom: 8px; }
+        a { color: #0056b3; text-decoration: none; font-weight: bold; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <h1>【 2026 最新版：Office 2021 雲端免下載部署與激活全攻略 】</h1>
+    
+    <div class="notice-box">
+        💡 核心路徑運作邏輯（讓您徹底安心）：<br>
+        本教學已針對您的專屬路徑進行最佳化。下載時的所有安裝原始碼（大約 3.5GB）皆會儲存在「D:\Dropbox\常用程式\OFFICE 2021」中，方便未來換新電腦時直接同步移動。但無論在哪台電腦執行安裝，微軟的核心程式皆會自動將 Office 2021 主程式安裝到系統預設的「C:\Program Files\Microsoft Office」中，絕對不會佔用或塞爆您的 Dropbox 雲端運作空間！
+    </div>
+
+    <h2>第一部分：初次下載與備份（現有電腦操作）</h2>
+    
+    <h3>步驟 1：確認雲端資料夾路徑</h3>
+    <p>請確認您的 D 槽 Dropbox 內，資料夾完整路徑必須完全符合：<strong>D:\Dropbox\常用程式\OFFICE 2021</strong></p>
+
+    <h3>步驟 2：下載與解壓微軟官方部署工具（乾淨化處理）</h3>
+    <ol>
+        <li>點擊右側微軟官方繁體中文網址下載工具：<a href="https://www.microsoft.com/zh-tw/download/details.aspx?id=49117" target="_blank">Office Deployment Tool 官方繁體中文下載點</a></li>
+        <li>下載得到 <code>officedeploymenttool_XXXXX-XXXXX.exe</code> 文件。</li>
+        <li>雙擊執行它，勾選同意條款，點擊 <strong>Continue</strong>。</li>
+        <li>當它詢問解壓路徑時，請手動點選指向您的專屬目錄：<strong>D:\Dropbox\常用程式\OFFICE 2021</strong>。</li>
+        <li><strong>【重點清潔動作】</strong>：解壓完成後，資料夾內除了會多出一個主程式 <code>setup.exe</code> 之外，還會附帶幾個名為 <code>configuration-Office365-x64.xml</code> 等微軟官方預設的範例檔。<strong>為了畫面乾淨且避免日後操作混淆，請直接把這些帶有「Office365」等名字的舊範例檔案全部按右鍵刪除，只留下單獨一個 <code>setup.exe</code> 即可。</strong></li>
+    </ol>
+
+    <h3>步驟 3：建立 Office 2021 官方自訂設定檔（已精簡優化）</h3>
+    <ol>
+        <li>在 <code>D:\Dropbox\常用程式\OFFICE 2021</code> 資料夾內的空白處，按右鍵 -> 新增 -> 文字文件（記事本）。</li>
+        <li>將以下方框內的 XML 設定代碼<strong>完整複製並貼入</strong>該記事本中（此處已設定為<b>僅安裝 Excel、PowerPoint、Word</b>，其餘無用 App 皆已剔除）：</li>
+    </ol>
+    
+    <div class="xml-box">&lt;Configuration&gt;
+  &lt;Add OfficeClientEdition="64" Channel="PerpetualVL2021"&gt;
+    &lt;Product ID="ProPlus2021Volume" PIDKEY="FXYTK-NJJ8C-796M3-294H2-R3K72"&gt;
+      &lt;Language ID="zh-tw" /&gt;
+      &lt;ExcludeApp ID="Access" /&gt;
+      &lt;ExcludeApp ID="Groove" /&gt;
+      &lt;ExcludeApp ID="Lync" /&gt;
+      &lt;ExcludeApp ID="OneDrive" /&gt;
+      &lt;ExcludeApp ID="OneNote" /&gt;
+      &lt;ExcludeApp ID="Outlook" /&gt;
+      &lt;ExcludeApp ID="Publisher" /&gt;
+      &lt;ExcludeApp ID="Teams" /&gt;
+    &lt;/Product&gt;
+  &lt;/Add&gt;
+  &lt;RemoveMSI /&gt;
+  &lt;Property Name="AUTOACTIVATE" Value="1" /&gt;
+&lt;/Configuration&gt;</div>
+
+    <ol start="3">
+        <li>點選該記事本左上角【檔案】->【另存新檔】。</li>
+        <li><strong>存檔類型</strong>：切換為 <strong>「所有檔案 (*.*)」</strong>。</li>
+        <li><strong>檔案名稱</strong>：輸入 <strong style="color:red;">configuration-Office2021-x64.xml</strong></li>
+        <li>點選儲存。此時您的資料夾內應該同時有 setup.exe 與此 xml 檔案。</li>
+    </ol>
+
+    <h3>步驟 4：開始背景下載 Office 2021 安裝檔</h3>
+    <ol>
+        <li>點擊 Windows 搜尋列輸入 <code>cmd</code>，對「命令提示字元」按<strong>滑鼠右鍵</strong>選擇<strong>「以系統管理員身分執行」</strong>。</li>
+        <li>複製以下命令貼入 CMD，切換到您的專屬路徑並按 Enter：</li>
+        <div class="code-box">cd /d "D:\Dropbox\常用程式\OFFICE 2021"</div>
+        <li>複製以下官方下載命令貼入 CMD 並按 Enter：</li>
+        <div class="code-box">setup.exe /download configuration-Office2021-x64.xml</div>
+        <li><strong style="color:red;">重要說明</strong>：此時 CMD 畫面會卡住完全沒有任何反應，這是正常現象！系統正在背景默默將大約 3.5GB 的微軟官方原廠安裝套件下載到您的儲存目錄中。請放著讓它跑 5 ~ 10 分鐘，直到畫面重新跳出可輸入下一行指令的路徑為止。</li>
+    </ol>
+
+    <div class="success-box">
+        🔍 如何確認下載完成、何時能關閉 CMD 視窗？<br>
+        1. 判定關閉時機：當下載完全結束時，原本卡住不行的 CMD 視窗會突然跳行，並在最下方重新顯示您的完整目錄路徑與閃爍游標（例如：<code>D:\Dropbox\常用程式\OFFICE 2021&gt;_</code>）。只要看到路徑重新跳出來，就可以放心地點擊右上角「X」直接關閉 CMD 視窗。<br>
+        2. 最終檔案檢查：關閉 CMD 後，請進入該資料夾檢查，此時最完美的「雲端大補帖」內必須僅包含以下三個檔案：<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• setup.exe（部署主程式）<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• configuration-Office2021-x64.xml（已修改優化、剔除多餘 App 的設定檔）<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Office（大資料夾，對其點右鍵選擇「內容」，最終容量大小會停在 3.3 GB ~ 3.5 GB 之間）<br>
+        符合以上條件即代表雲端備份圓滿成功！若目前沒有要安裝，此時即可停止後續操作。
+    </div>
+
+    <h3>步驟 5：在現有電腦上執行安裝（若日後有需要安裝時才執行）</h3>
+    <ol>
+        <li>在同一個管理員 CMD 視窗中（或重新開啟管理員 CMD 並切換至該目錄），直接貼上安裝命令並按 Enter：</li>
+        <div class="code-box">setup.exe /configure configuration-Office2021-x64.xml</div>
+        <li>此時會立刻跳出微軟官方的橘色安裝進度視窗，系統會讀取 D 槽檔案並自動安裝到您的 <strong>C:\Program Files\Microsoft Office</strong> 中。靜待它跑完即安裝成功。由於已在 XML 設定剔除，此時只會安裝您需要的精簡版軟體。</li>
+    </ol>
+
+    <h3>步驟 6：首次 KMS 激活</h3>
+    <ol>
+        <li>開啟一個全新的 CMD 視窗（<strong>務必以系統管理員身分執行</strong>）。</li>
+        <li>依序複製貼上以下三行指令，每行貼上後都要按一次 Enter：</li>
+        <div class="code-box">cd "C:\Program Files\Microsoft Office\Office16"</div>
+        <div class="code-box">cscript ospp.vbs /sethst:kms8.MSGuides.com</div>
+        <div class="code-box">cscript ospp.vbs /act</div>
+        <li>看到畫面上顯示 <code>Product activation successful</code> 即代表 180 天激活成功！</li>
+    </ol>
+
+    <h2>第二部分：未來換新電腦時（免下載、秒速裝機指南）</h2>
+    <p>當您以後換了新電腦，因為 Dropbox 已經把高達 3.5GB 的 <code>Office</code> 資料夾自動同步過去新電腦的 D 槽了，您<strong>絕對不需要</strong>再執行 <code>/download</code> 命令。請直接這樣操作：</p>
+    <ol>
+        <li><strong>確認同步完成</strong>：新電腦裝好 Dropbox 並同步完畢後，確認 <code>D:\Dropbox\常用程式\OFFICE 2021</code> 資料夾內包含 setup.exe、Office 資料夾與 .xml 檔案。</li>
+        <li><strong>免下載直接安裝（寫入新電腦 C 槽）</strong>：在新電腦以<strong>系統管理員身分</strong>開啟 CMD，直接輸入以下裝機兩行指令：</li>
+        <div class="code-box">cd /d "D:\Dropbox\常用程式\OFFICE 2021"</div>
+        <div class="code-box">setup.exe /configure configuration-Office2021-x64.xml</div>
+        <p>*(因為不需要重新下載，微軟的橘色安裝進度條會直接抓取您 Dropbox 的本地檔案，在 1~2 分鐘內就瞬間安裝完畢，並自動裝進新電腦的 C 槽，且同樣只包含 Excel/PPT/Word！)*</p>
+        <li><strong>原地激活</strong>：安裝完成後，開啟全新的管理員 CMD，直接貼上激活命令：</li>
+        <div class="code-box">cd "C:\Program Files\Microsoft Office\Office16"</div>
+        <div class="code-box">cscript ospp.vbs /sethst:kms.03k.org</div>
+        <div class="code-box">cscript ospp.vbs /act</div>
+    </ol>
+
+    <h2>第三部分：KMS 伺服器故障時的「無縫切換重新導向」指南</h2>
+    <p>非官方的 KMS 伺服器隨時都有可能斷線或關閉。如果您某天打開 Word 發現跳出「產品未激活」的紅色警告，這代表舊的伺服器（如 <code>kms.03k.org</code>）可能故障了。</p>
+    
+    <h3>🔍 故障排查與重導向步驟：</h3>
+    <ol>
+        <li>請用瀏覽器打開世界 KMS 伺服器即時監控網頁：<a href="https://yerong.org" target="_blank">KMS Online Status Monitor</a></li>
+        <li>在網頁清單中，尋找狀態顯示為綠色 <span style="color:green; font-weight:bold;">「Online (在線)」</span> 的伺服器網址。</li>
+        <p><em>💡 實戰舉例說明：</em> 假設您今天打開網頁，發現舊的 <code>kms.03k.org</code> 變成了紅色的 Offline（斷線），而清單中另外兩個網址 <code>kms.v0v.bid</code> 或 <code>kms.cxv.kr</code> 顯示為綠色的 Online（在線）。</p>
+        <li>請選取其中一個活著的網址（例如 <code>kms.v0v.bid</code>），然後在需要激活的電腦上以<strong>系統管理員身分</strong>開啟 CMD。</li>
+        <li>輸入以下指令進入 Office 目錄（按 Enter）：</li>
+        <div class="code-box">cd "C:\Program Files\Microsoft Office\Office16"</div>
+        <li><strong>執行重新導向命令</strong>（將舊伺服器原地替換為新伺服器網址，按 Enter）：</li>
+        <div class="code-box">cscript ospp.vbs /sethst:kms.v0v.bid</div>
+        <li>最後強制發送立即啟用請求（按 Enter）：</li>
+        <div class="code-box">cscript ospp.vbs /act</div>
+        <li>只要畫面再度跳出 <code>Product activation successful</code>，您的 Office 就會立刻原地復活，重新獲得全新的 180 天授權！</li>
+    </ol>
+
+</body>
+</html>
